@@ -5,15 +5,18 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.panic.tiquet.evento.applicationcore.domain.Divisa;
 import co.panic.tiquet.evento.applicationcore.usesace.DivisaUseCase;
+import co.panic.tiquet.evento.crosscutting.utils.Messages;
 
 @RestController
 @RequestMapping("tiquet/divisa")
@@ -44,20 +47,25 @@ public class DivisaApi {
 		List<Divisa> listaDivisaCreada = divisaUseCase.listarTodo();
 		return new ResponseEntity<>(listaDivisaCreada, HttpStatus.OK);
 	}
-    /*@PostMapping(value = "create", produces=MediaType.APPLICATION_JSON_VALUE)
-    public Divisa create( @RequestParam String nombre, @RequestParam String descripcion) {
-        return divisaInputPort.createDivisa(nombre, descripcion);
-        }
- 
-    @PostMapping(value = "get", produces=MediaType.APPLICATION_JSON_VALUE)
-    public Divisa get( @RequestParam String divisaId ) {
-        return divisaInputPort.getById(divisaId);
-        }
-
-    @PostMapping(value = "getall", produces=MediaType.APPLICATION_JSON_VALUE)
-    public List<Divisa> getAll() {
-        return divisaInputPort.getAll();
-        }
-    */
-           
+	
+	@PutMapping
+	public ResponseEntity<String> modificarDivisa(@RequestBody Divisa divisa){
+		if(divisaUseCase.modificar(divisa)) {
+			return new ResponseEntity<>(Messages.DivisaAPI.DIVISA_UPDATE_OK, HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(Messages.DivisaAPI.ID_DIVISA_NOT_FOUND, HttpStatus.NOT_FOUND);
+		}
+		
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> eliminarDivisa(@PathVariable UUID id){ 
+		if(divisaUseCase.borrar(id)) {
+			return new ResponseEntity<>(Messages.DivisaAPI.DIVISA_DELETE_OK, HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(Messages.DivisaAPI.ID_DIVISA_NOT_FOUND, HttpStatus.NOT_FOUND);
+		}
+	}           
 }

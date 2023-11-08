@@ -10,24 +10,24 @@ import org.springframework.stereotype.Component;
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.DivisaAssembler;
 import co.panic.tiquet.evento.applicationcore.domain.Divisa;
 import co.panic.tiquet.evento.applicationcore.usesace.DivisaUseCase;
+import co.panic.tiquet.evento.infraestructure.models.DivisaModel;
 import co.panic.tiquet.evento.infraestructure.service.DivisaServicio;
 
 
 @Component
 public class DivisaUseCaseImpl implements DivisaUseCase{
 	
-
 	@Autowired
 	private DivisaServicio divisaServicio;
 
 	@Override
 	public Divisa guardar(Divisa divisa) {
-		Divisa divisaCreada = Divisa.create().
+		DivisaModel divisaCreada = DivisaModel.create().
 				setId(UUID.randomUUID()).
 				setNombre(divisa.getNombre()).
 				setDescripcion(divisa.getDescripcion());
 		
-		return DivisaAssembler.getInstance().toDomainFromModel(divisaServicio.guardar(DivisaAssembler.getInstance().toModelFromDomain(divisaCreada)));
+		return DivisaAssembler.getInstance().toDomainFromModel(divisaServicio.guardar(divisaCreada));
 	}
 
 	@Override
@@ -41,15 +41,16 @@ public class DivisaUseCaseImpl implements DivisaUseCase{
 	}
 
 	@Override
-	public Divisa borrar(UUID id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean borrar(UUID id) {
+		return divisaServicio.borrar(id);
 	}
 
 	@Override
-	public Divisa modificar(UUID id, Divisa divisa) {
-		// TODO Auto-generated method stub
-		return null;
-
+	public Boolean modificar(Divisa divisa) {
+		DivisaModel divisaCreada = DivisaModel.create().
+				setId(divisa.getId()).
+				setNombre(divisa.getNombre()).
+				setDescripcion(divisa.getDescripcion());
+		return divisaServicio.modificar(divisaCreada);
 	}
 }

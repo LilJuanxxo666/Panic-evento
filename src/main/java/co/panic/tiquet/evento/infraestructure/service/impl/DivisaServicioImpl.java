@@ -34,18 +34,24 @@ public class DivisaServicioImpl implements DivisaServicio{
 	}
 
 	@Override
-	public void borrar(UUID id) {
-		divisaRepositorio.deleteById(id);
+	public Boolean borrar(UUID id) {
+		if(divisaRepositorio.existsById(id)) {
+			divisaRepositorio.deleteById(id);
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	@Override
-	public DivisaModel modificar(UUID id, DivisaModel divisa) {
-		if(!divisaRepositorio.existsById(id)) {
-			return DivisaModel.create();
+	public Boolean modificar(DivisaModel divisa) {
+		if(divisaRepositorio.existsById(divisa.getId())) {
+			DivisaModel divisaCreada = new DivisaModel(divisa.getId(), divisa.getNombre(), divisa.getDescripcion());
+			divisaRepositorio.save(divisaCreada);
+			return true;
 		}else {
-			DivisaModel divisaCreada = new DivisaModel(id, divisa.getNombre(), divisa.getDescripcion());
-			return divisaRepositorio.save(divisaCreada);
-			
+			return false;
 		}
+		
 	}
 }

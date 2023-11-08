@@ -13,7 +13,7 @@ public interface DivisaUseCase {
 	
 	public List<Divisa> listarTodo();
 	
-	public Divisa borrar(UUID id);
+	public Boolean borrar(UUID id);
 	
-	public Divisa modificar(UUID id, Divisa divisa);
+	public Boolean modificar(Divisa divisa);
 }

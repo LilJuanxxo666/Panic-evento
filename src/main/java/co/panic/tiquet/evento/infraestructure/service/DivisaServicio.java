@@ -13,7 +13,7 @@ public interface DivisaServicio {
 	
 	public List<DivisaModel> listarTodo();
 	
-	public void borrar(UUID id);
+	public Boolean borrar(UUID id);
 	
-	public DivisaModel modificar(UUID id, DivisaModel divisa);
+	public Boolean modificar(DivisaModel divisa);
 }
