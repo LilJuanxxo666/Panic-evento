@@ -3,6 +3,7 @@ package co.panic.tiquet.evento.applicationcore.usesace.impl;
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.AreaAssembler;
 import co.panic.tiquet.evento.applicationcore.domain.Area;
 import co.panic.tiquet.evento.applicationcore.usesace.AreaUseCase;
+import co.panic.tiquet.evento.infraestructure.models.AreaModel;
 import co.panic.tiquet.evento.infraestructure.service.AreaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,14 +19,14 @@ public class AreaUseCaseImpl implements AreaUseCase {
 
     @Override
     public Area guardar(Area area) {
-        Area areaCreada = Area.create()
+        AreaModel areaCreada = AreaModel.create()
                 .setId(UUID.randomUUID())
                 .setNombre(area.getNombre())
                 .setDescripcion(area.getDescripcion())
                 .setCantAforo(area.getCantAforo())
                 .setRangEdad(area.getRangEdad());
 
-        return AreaAssembler.getInstance().toDomainFromModel(areaServicio.guardar(AreaAssembler.getInstance().toModelFromDomain(areaCreada)));
+        return AreaAssembler.getInstance().toDomainFromModel(areaServicio.guardar(areaCreada));
     }
 
     @Override
@@ -39,12 +40,20 @@ public class AreaUseCaseImpl implements AreaUseCase {
     }
 
     @Override
-    public Area borrar(UUID id) {
-        return null;
+    public Boolean borrar(UUID id) {
+        return areaServicio.borrar(id);
+
     }
 
     @Override
-    public Area modificar(UUID id, Area area) {
-        return null;
+    public Boolean modificar(Area area) {
+        AreaModel areaModificada = AreaModel.create()
+                .setId(area.getId())
+                .setNombre(area.getNombre())
+                .setDescripcion(area.getDescripcion())
+                .setCantAforo(area.getCantAforo())
+                .setRangEdad(area.getRangEdad());
+
+        return areaServicio.modificar(areaModificada);
     }
 }

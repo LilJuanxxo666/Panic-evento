@@ -13,7 +13,7 @@ public interface AreaServicio {
 
     List<AreaModel> listarTodo();
 
-    void borrar(UUID id);
+    Boolean borrar(UUID id);
 
-    AreaModel modificar(UUID id, AreaModel area);
+    Boolean modificar(AreaModel area);
 }

@@ -2,6 +2,7 @@ package co.panic.tiquet.evento.userinterface.inputadapter.http;
 
 import co.panic.tiquet.evento.applicationcore.domain.Area;
 import co.panic.tiquet.evento.applicationcore.usesace.AreaUseCase;
+import co.panic.tiquet.evento.crosscutting.utils.Messages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,5 +39,23 @@ public class AreaApi {
     public ResponseEntity<List<Area>> consultarAreas() {
         List<Area> listaAreas = areaUseCase.listarTodo();
         return new ResponseEntity<>(listaAreas, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<String> modificarArea(@RequestBody Area area) {
+        if (areaUseCase.modificar(area)) {
+            return new ResponseEntity<>(Messages.AreaAPI.AREA_UPDATE_OK, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(Messages.AreaAPI.ID_AREA_NOT_FOUND, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> eliminarArea(@PathVariable UUID id) {
+        if (areaUseCase.borrar(id)) {
+            return new ResponseEntity<>(Messages.AreaAPI.AREA_DELETE_OK, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(Messages.AreaAPI.ID_AREA_NOT_FOUND, HttpStatus.NOT_FOUND);
+        }
     }
 }

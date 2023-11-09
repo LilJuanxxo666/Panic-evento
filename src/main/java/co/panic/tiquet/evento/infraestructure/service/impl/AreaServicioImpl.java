@@ -31,17 +31,23 @@ public class AreaServicioImpl implements AreaServicio {
     }
 
     @Override
-    public void borrar(UUID id) {
-        areaRepositorio.deleteById(id);
+    public Boolean borrar(UUID id) {
+        if (areaRepositorio.existsById(id)) {
+            areaRepositorio.deleteById(id);
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
-    public AreaModel modificar(UUID id, AreaModel area) {
-        if (!areaRepositorio.existsById(id)) {
-            return AreaModel.create();
+    public Boolean modificar(AreaModel area) {
+        if (areaRepositorio.existsById(area.getId())) {
+            AreaModel areaModificada = new AreaModel(area.getId(), area.getNombre(), area.getDescripcion(), area.getCantAforo(), area.getRangEdad());
+            areaRepositorio.save(areaModificada);
+            return true;
         } else {
-            AreaModel areaModificada = new AreaModel(id, area.getNombre(), area.getDescripcion(), area.getCantAforo(), area.getRangEdad());
-            return areaRepositorio.save(areaModificada);
+            return false;
         }
     }
 }

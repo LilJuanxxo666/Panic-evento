@@ -13,7 +13,7 @@ public interface AreaUseCase {
 
     public List<Area> listarTodo();
 
-    public Area borrar(UUID id);
+    public Boolean borrar(UUID id);
 
-    public Area modificar(UUID id, Area area);
+    public Boolean modificar(Area area);
 }
