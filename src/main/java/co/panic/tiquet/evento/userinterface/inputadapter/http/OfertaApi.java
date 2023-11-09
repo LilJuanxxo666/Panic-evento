@@ -1,7 +1,7 @@
 package co.panic.tiquet.evento.userinterface.inputadapter.http;
 
 import co.panic.tiquet.evento.applicationcore.domain.Oferta;
-import co.panic.tiquet.evento.applicationcore.usesCace.OfertaUseCase;
+import co.panic.tiquet.evento.applicationcore.usesCase.OfertaUseCase;
 import co.panic.tiquet.evento.crosscutting.utils.Messages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

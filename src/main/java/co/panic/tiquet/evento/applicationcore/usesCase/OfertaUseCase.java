@@ -1,4 +1,4 @@
-package co.panic.tiquet.evento.applicationcore.usesCace;
+package co.panic.tiquet.evento.applicationcore.usesCase;
 
 import co.panic.tiquet.evento.applicationcore.domain.Oferta;
 

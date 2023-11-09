@@ -1,4 +1,4 @@
-package co.panic.tiquet.evento.applicationcore.usesCace.impl;
+package co.panic.tiquet.evento.applicationcore.usesCase.impl;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.DivisaAssembler;
 import co.panic.tiquet.evento.applicationcore.domain.Divisa;
-import co.panic.tiquet.evento.applicationcore.usesCace.DivisaUseCase;
+import co.panic.tiquet.evento.applicationcore.usesCase.DivisaUseCase;
 import co.panic.tiquet.evento.infraestructure.models.DivisaModel;
 import co.panic.tiquet.evento.infraestructure.service.DivisaServicio;
 

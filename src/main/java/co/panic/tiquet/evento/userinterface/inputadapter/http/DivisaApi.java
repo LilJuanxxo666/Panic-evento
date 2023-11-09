@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.panic.tiquet.evento.applicationcore.domain.Divisa;
-import co.panic.tiquet.evento.applicationcore.usesCace.DivisaUseCase;
+import co.panic.tiquet.evento.applicationcore.usesCase.DivisaUseCase;
 import co.panic.tiquet.evento.crosscutting.utils.Messages;
 
 @RestController

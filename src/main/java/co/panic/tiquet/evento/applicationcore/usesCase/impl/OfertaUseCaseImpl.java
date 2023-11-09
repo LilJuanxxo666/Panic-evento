@@ -1,10 +1,10 @@
-package co.panic.tiquet.evento.applicationcore.usesCace.impl;
+package co.panic.tiquet.evento.applicationcore.usesCase.impl;
 
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.AreaAssembler;
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.OfertaAssembler;
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.PrecioAssembler;
 import co.panic.tiquet.evento.applicationcore.domain.Oferta;
-import co.panic.tiquet.evento.applicationcore.usesCace.OfertaUseCase;
+import co.panic.tiquet.evento.applicationcore.usesCase.OfertaUseCase;
 import co.panic.tiquet.evento.infraestructure.models.OfertaModel;
 import co.panic.tiquet.evento.infraestructure.service.OfertaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
