@@ -1,4 +1,4 @@
-package co.panic.tiquet.evento.applicationcore.usesace;
+package co.panic.tiquet.evento.applicationcore.usesCace;
 
 import java.util.List;
 import java.util.UUID;

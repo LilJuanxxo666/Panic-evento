@@ -1,8 +1,8 @@
-package co.panic.tiquet.evento.applicationcore.usesace.impl;
+package co.panic.tiquet.evento.applicationcore.usesCace.impl;
 
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.AreaAssembler;
 import co.panic.tiquet.evento.applicationcore.domain.Area;
-import co.panic.tiquet.evento.applicationcore.usesace.AreaUseCase;
+import co.panic.tiquet.evento.applicationcore.usesCace.AreaUseCase;
 import co.panic.tiquet.evento.infraestructure.models.AreaModel;
 import co.panic.tiquet.evento.infraestructure.service.AreaServicio;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package co.panic.tiquet.evento.applicationcore.usesace;
+package co.panic.tiquet.evento.applicationcore.usesCace;
 
 import co.panic.tiquet.evento.applicationcore.domain.EstadoEvento;
 

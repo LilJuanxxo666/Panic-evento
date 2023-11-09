@@ -1,8 +1,8 @@
-package co.panic.tiquet.evento.applicationcore.usesace.impl;
+package co.panic.tiquet.evento.applicationcore.usesCace.impl;
 
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.GeneroAssembler;
 import co.panic.tiquet.evento.applicationcore.domain.Genero;
-import co.panic.tiquet.evento.applicationcore.usesace.GeneroUseCase;
+import co.panic.tiquet.evento.applicationcore.usesCace.GeneroUseCase;
 import co.panic.tiquet.evento.infraestructure.service.GeneroServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

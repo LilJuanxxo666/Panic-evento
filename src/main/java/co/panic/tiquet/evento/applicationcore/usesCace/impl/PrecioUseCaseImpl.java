@@ -1,9 +1,9 @@
-package co.panic.tiquet.evento.applicationcore.usesace.impl;
+package co.panic.tiquet.evento.applicationcore.usesCace.impl;
 
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.DivisaAssembler;
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.PrecioAssembler;
 import co.panic.tiquet.evento.applicationcore.domain.Precio;
-import co.panic.tiquet.evento.applicationcore.usesace.PrecioUseCase;
+import co.panic.tiquet.evento.applicationcore.usesCace.PrecioUseCase;
 import co.panic.tiquet.evento.infraestructure.models.PrecioModel;
 import co.panic.tiquet.evento.infraestructure.service.PrecioServicio;
 import org.springframework.beans.factory.annotation.Autowired;

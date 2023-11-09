@@ -1,8 +1,8 @@
-package co.panic.tiquet.evento.applicationcore.usesace.impl;
+package co.panic.tiquet.evento.applicationcore.usesCace.impl;
 
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.EstadoEventoAssembler;
 import co.panic.tiquet.evento.applicationcore.domain.EstadoEvento;
-import co.panic.tiquet.evento.applicationcore.usesace.EstadoEventoUseCase;
+import co.panic.tiquet.evento.applicationcore.usesCace.EstadoEventoUseCase;
 import co.panic.tiquet.evento.infraestructure.service.EstadoEventoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
