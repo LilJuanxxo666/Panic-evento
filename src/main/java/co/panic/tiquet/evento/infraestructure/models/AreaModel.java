@@ -81,7 +81,7 @@ public class AreaModel {
     }
 
     public AreaModel setCantAforo(int cantAforo) {
-        this.cantAforo = cantAforo;
+        this.cantAforo = UtilNumber.getUtilNumber().getDefault(cantAforo).intValue();
         return this;
     }
 

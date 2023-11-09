@@ -30,7 +30,7 @@ public class EstadoEvento {
         return id;
     }
 
-    public EstadoEvento setId(final UUID identificador) {
+    public EstadoEvento setId(UUID identificador) {
         this.id = UtilUUID.getDefault(identificador);
         return this;
     }

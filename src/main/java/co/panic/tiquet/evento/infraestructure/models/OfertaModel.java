@@ -1,5 +1,6 @@
 package co.panic.tiquet.evento.infraestructure.models;
 
+import co.panic.tiquet.evento.crosscutting.utils.UtilObject;
 import co.panic.tiquet.evento.crosscutting.utils.UtilText;
 import co.panic.tiquet.evento.crosscutting.utils.UtilUUID;
 import jakarta.persistence.*;
@@ -79,7 +80,7 @@ public class OfertaModel {
     }
 
     public OfertaModel setPrecio(PrecioModel precio) {
-        this.precio = precio;
+        this.precio = UtilObject.getDefault(precio, PrecioModel.create());
         return this;
     }
 
@@ -88,7 +89,7 @@ public class OfertaModel {
     }
 
     public OfertaModel setArea(AreaModel area) {
-        this.area = area;
+        this.area = UtilObject.getDefault(area, AreaModel.create());
         return this;
     }
 }

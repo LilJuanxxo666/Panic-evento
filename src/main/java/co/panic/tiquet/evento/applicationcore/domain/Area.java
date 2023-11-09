@@ -65,7 +65,7 @@ public class Area {
     }
 
     public Area setCantAforo(int cantAforo) {
-        this.cantAforo = cantAforo;
+        this.cantAforo = UtilNumber.getUtilNumber().getDefault(cantAforo).intValue();
         return this;
     }
 

@@ -1,6 +1,7 @@
 package co.panic.tiquet.evento.applicationcore.domain;
 
 import co.panic.tiquet.evento.crosscutting.utils.UtilNumber;
+import co.panic.tiquet.evento.crosscutting.utils.UtilObject;
 import co.panic.tiquet.evento.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
@@ -40,7 +41,7 @@ public class Precio {
     }
 
     public Precio setPrecio(double precio) {
-        this.precio = precio;
+        this.precio = UtilNumber.getUtilNumber().getDefault(precio).doubleValue();
         return this;
     }
 
@@ -49,7 +50,7 @@ public class Precio {
     }
 
     public Precio setDivisa(Divisa divisa) {
-        this.divisa = divisa;
+        this.divisa = UtilObject.getDefault(divisa, Divisa.create());
         return this;
     }
 }

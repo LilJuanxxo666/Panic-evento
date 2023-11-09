@@ -1,5 +1,6 @@
 package co.panic.tiquet.evento.applicationcore.domain;
 
+import co.panic.tiquet.evento.crosscutting.utils.UtilObject;
 import co.panic.tiquet.evento.crosscutting.utils.UtilText;
 import co.panic.tiquet.evento.crosscutting.utils.UtilUUID;
 
@@ -70,7 +71,7 @@ public class Evento {
     }
 
     public Evento setOferta(Oferta oferta) {
-        this.oferta = oferta;
+        this.oferta = UtilObject.getDefault(oferta, Oferta.create());
         return this;
     }
 
@@ -79,7 +80,7 @@ public class Evento {
     }
 
     public Evento setInformacionEvento(InformacionEvento informacionEvento) {
-        this.informacionEvento = informacionEvento;
+        this.informacionEvento = UtilObject.getDefault(informacionEvento, InformacionEvento.create());
         return this;
     }
 
@@ -97,7 +98,7 @@ public class Evento {
     }
 
     public Evento setEstado(EstadoEvento estado) {
-        this.estado = estado;
+        this.estado = UtilObject.getDefault(estado, EstadoEvento.create());
         return this;
     }
 }

@@ -1,6 +1,7 @@
 package co.panic.tiquet.evento.infraestructure.models;
 
 import co.panic.tiquet.evento.crosscutting.utils.UtilNumber;
+import co.panic.tiquet.evento.crosscutting.utils.UtilObject;
 import co.panic.tiquet.evento.crosscutting.utils.UtilUUID;
 import jakarta.persistence.*;
 
@@ -16,7 +17,7 @@ public class PrecioModel {
     @Column(name = "precio")
     private double precio;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "divisa_id")
     private DivisaModel divisa;
 
@@ -59,7 +60,7 @@ public class PrecioModel {
     }
 
     public PrecioModel setDivisa(DivisaModel divisa) {
-        this.divisa = divisa;
+        this.divisa = UtilObject.getDefault(divisa, DivisaModel.create());
         return this;
     }
 }

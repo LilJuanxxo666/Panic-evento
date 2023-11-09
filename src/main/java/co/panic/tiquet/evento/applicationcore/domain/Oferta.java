@@ -1,5 +1,6 @@
 package co.panic.tiquet.evento.applicationcore.domain;
 
+import co.panic.tiquet.evento.crosscutting.utils.UtilObject;
 import co.panic.tiquet.evento.crosscutting.utils.UtilText;
 import co.panic.tiquet.evento.crosscutting.utils.UtilUUID;
 
@@ -64,7 +65,7 @@ public class Oferta {
     }
 
     public Oferta setPrecio(Precio precio) {
-        this.precio = precio;
+        this.precio = UtilObject.getDefault(precio, Precio.create());
         return this;
     }
 
@@ -73,7 +74,7 @@ public class Oferta {
     }
 
     public Oferta setArea(Area area) {
-        this.area = area;
+        this.area = UtilObject.getDefault(area, Area.create());
         return this;
     }
 }

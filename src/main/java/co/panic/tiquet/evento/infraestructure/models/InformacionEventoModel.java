@@ -1,4 +1,6 @@
 package co.panic.tiquet.evento.infraestructure.models;
+import co.panic.tiquet.evento.crosscutting.utils.UtilDate;
+import co.panic.tiquet.evento.crosscutting.utils.UtilObject;
 import co.panic.tiquet.evento.crosscutting.utils.UtilText;
 import co.panic.tiquet.evento.crosscutting.utils.UtilUUID;
 import jakarta.persistence.*;
@@ -31,7 +33,7 @@ public class InformacionEventoModel {
         setDescripcion(UtilText.getUtilText().getDefaultValue());
         setArtista(UtilText.getUtilText().getDefaultValue());
         setGenero(GeneroModel.create());
-        setFecha(LocalDate.now());
+        setFecha(UtilDate.getDefaultDate());
     }
 
     public InformacionEventoModel(UUID id, String descripcion, String artista, GeneroModel genero, LocalDate fecha) {
@@ -78,7 +80,7 @@ public class InformacionEventoModel {
     }
 
     public InformacionEventoModel setGenero(GeneroModel genero) {
-        this.genero = genero;
+        this.genero = UtilObject.getDefault(genero, GeneroModel.create());
         return this;
     }
 
@@ -87,7 +89,7 @@ public class InformacionEventoModel {
     }
 
     public InformacionEventoModel setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+        this.fecha = UtilDate.getDefault(fecha);
         return this;
     }
 }

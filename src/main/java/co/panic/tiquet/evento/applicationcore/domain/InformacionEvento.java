@@ -1,5 +1,7 @@
 package co.panic.tiquet.evento.applicationcore.domain;
 
+import co.panic.tiquet.evento.crosscutting.utils.UtilDate;
+import co.panic.tiquet.evento.crosscutting.utils.UtilObject;
 import co.panic.tiquet.evento.crosscutting.utils.UtilText;
 import co.panic.tiquet.evento.crosscutting.utils.UtilUUID;
 
@@ -18,7 +20,7 @@ public class InformacionEvento {
         setDescripcion(UtilText.getUtilText().getDefaultValue());
         setArtista(UtilText.getUtilText().getDefaultValue());
         setGenero(Genero.create());
-        setFecha(LocalDate.now());
+        setFecha(UtilDate.getDefaultDate());
     }
 
     public InformacionEvento(UUID id, String descripcion, String artista, Genero genero, LocalDate fecha) {
@@ -65,7 +67,7 @@ public class InformacionEvento {
     }
 
     public InformacionEvento setGenero(Genero genero) {
-        this.genero = genero;
+        this.genero = UtilObject.getDefault(genero, Genero.create());
         return this;
     }
 
@@ -74,7 +76,7 @@ public class InformacionEvento {
     }
 
     public InformacionEvento setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+        this.fecha = UtilDate.getDefault(fecha);
         return this;
     }
 }

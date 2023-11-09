@@ -1,5 +1,5 @@
 package co.panic.tiquet.evento.infraestructure.models;
-
+import co.panic.tiquet.evento.crosscutting.utils.UtilObject;
 import co.panic.tiquet.evento.crosscutting.utils.UtilText;
 import co.panic.tiquet.evento.crosscutting.utils.UtilUUID;
 import jakarta.persistence.*;
@@ -91,7 +91,7 @@ public class EventoModel {
     }
 
     public EventoModel setOferta(OfertaModel oferta) {
-        this.oferta = oferta;
+        this.oferta = UtilObject.getDefault(oferta, OfertaModel.create());
         return this;
     }
 
@@ -100,7 +100,7 @@ public class EventoModel {
     }
 
     public EventoModel setInformacionEvento(InformacionEventoModel informacionEvento) {
-        this.informacionEvento = informacionEvento;
+        this.informacionEvento = UtilObject.getDefault(informacionEvento, InformacionEventoModel.create());
         return this;
     }
 
@@ -118,7 +118,7 @@ public class EventoModel {
     }
 
     public EventoModel setEstado(EstadoEventoModel estado) {
-        this.estado = estado;
+        this.estado = UtilObject.getDefault(estado, EstadoEventoModel.create());
         return this;
     }
 }

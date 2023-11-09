@@ -4,7 +4,9 @@ import co.panic.tiquet.evento.applicationcore.assembler.concrete.DivisaAssembler
 import co.panic.tiquet.evento.applicationcore.assembler.concrete.PrecioAssembler;
 import co.panic.tiquet.evento.applicationcore.domain.Precio;
 import co.panic.tiquet.evento.applicationcore.usesace.PrecioUseCase;
+import co.panic.tiquet.evento.crosscutting.utils.UtilUUID;
 import co.panic.tiquet.evento.infraestructure.models.PrecioModel;
+import co.panic.tiquet.evento.infraestructure.repository.PrecioRepositorio;
 import co.panic.tiquet.evento.infraestructure.service.PrecioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,9 +19,20 @@ public class PrecioUseCaseImpl implements PrecioUseCase {
 
     @Autowired
     private PrecioServicio precioServicio;
+    
+    @Autowired
+    private PrecioRepositorio precioRepositorio;
 
     @Override
     public Precio guardar(Precio precio) {
+    	
+    	UUID id;
+    	
+    	do {
+			id = UtilUUID.generateNewUUID();
+		}while(precioRepositorio.existsById(id));
+    	
+    	
         PrecioModel precioCreado = PrecioModel.create()
                 .setId(UUID.randomUUID())
                 .setPrecio(precio.getPrecio())
