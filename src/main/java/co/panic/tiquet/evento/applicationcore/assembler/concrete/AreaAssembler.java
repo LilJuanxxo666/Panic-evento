@@ -5,7 +5,6 @@ import co.panic.tiquet.evento.applicationcore.domain.Area;
 import co.panic.tiquet.evento.infraestructure.models.AreaModel;
 
 import java.util.List;
-import java.util.UUID;
 
 public class AreaAssembler implements Assembler<Area, AreaModel> {
 
