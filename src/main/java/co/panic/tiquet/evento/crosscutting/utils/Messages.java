@@ -18,4 +18,10 @@ public final class Messages {
 		public static final String AREA_UPDATE_OK= "Area actualizada exitosamente";
 		public static final String AREA_DELETE_OK= "Area eliminada exitosamente";
 	}
+	public static final class PrecioAPI{
+		private PrecioAPI(){}
+		public static final String ID_PRECIO_NOT_FOUND = "No se pudo encontrar el precio con el ID proporcionado";
+		public static final String PRECIO_UPDATE_OK= "Precio actualizada exitosamente";
+		public static final String PRECIO_DELETE_OK= "Precio eliminada exitosamente";
+	}
 }
