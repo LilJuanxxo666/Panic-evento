@@ -24,4 +24,10 @@ public final class Messages {
 		public static final String PRECIO_UPDATE_OK= "Precio actualizada exitosamente";
 		public static final String PRECIO_DELETE_OK= "Precio eliminada exitosamente";
 	}
+	public static final class OfertaAPI{
+		private OfertaAPI(){}
+		public static final String ID_OFERTA_NOT_FOUND = "No se pudo encontrar el oferta con el ID proporcionado";
+		public static final String OFERTA_UPDATE_OK= "Oferta actualizada exitosamente";
+		public static final String OFERTA_DELETE_OK= "Oferta eliminada exitosamente";
+	}
 }
